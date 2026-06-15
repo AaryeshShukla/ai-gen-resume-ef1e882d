@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaryesh Shukla - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600&family=Inter:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #080b10;
+            --text-color: #ffffff;
+            --primary-color: #6a82fb;
+            --secondary-color: #fc5c7d;
+            --accent-color: #00d2ff;
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+        nav a {
+            color: var(--text-color);
+            margin: 0 15px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(106, 130, 251, 0.5), rgba(252, 92, 125, 0.5));
+        }
+        .hero h1 {
+            font-size: 3rem;
+            animation: typing 3s steps(30, end);
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 4px solid var(--primary-color);
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        .section {
+            padding: 50px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+        }
+        .progress {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius);
+            height: 10px;
+            margin: 10px 0;
+        }
+        .progress-bar {
+            background: var(--primary-color);
+            height: 100%;
+            border-radius: var(--border-radius);
+            width: 0;
+            transition: width 1s;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 200;
+        }
+        .modal-content {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Aaryesh Shukla</h1>
+        <nav>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Welcome to My Resume</h1>
+    </section>
+    <section id="education" class="section">
+        <h2>Education</h2>
+        <div class="card">
+            <h3>Diploma in Programming</h3>
+            <p>IIT Madras, May 2026</p>
+        </div>
+        <div class="card">
+            <h3>B. Tech. (CS)</h3>
+            <p>IIST (Affiliated to RGPV), 2023-2027</p>
+        </div>
+        <div class="card">
+            <h3>B.S. (Data Science)</h3>
+            <p>IIT Madras, 2023-2027</p>
+        </div>
+        <div class="card">
+            <h3>Higher Secondary School</h3>
+            <p>VIS Indore (M.P.), 2022-2023</p>
+        </div>
+    </section>
+    <section id="skills" class="section">
+        <h2>Skills Summary</h2>
+        <div class="card">
+            <h3>Languages</h3>
+            <p>Python, SQL, HTML/CSS, JAVA, JavaScript, C, C++</p>
+            <div class="progress"><div class="progress-bar" style="width: 85%;"></div></div>
+        </div>
+        <div class="card">
+            <h3>Frameworks</h3>
+            <p>NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, TensorFlow, Flask, Vue.js</p>
+            <div class="progress"><div class="progress-bar" style="width: 75%;"></div></div>
+        </div>
+        <div class="card">
+            <h3>Tools</h3>
+            <p>Excel, PowerPoint, MySql, SQLite</p>
+            <div class="progress"><div class="progress-bar" style="width: 70%;"></div></div>
+        </div>
+    </section>
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="card" onclick="openModal('project1')">
+            <h3>Celebrity Image Classifier</h3>
+            <p>Built an end-to-end machine learning web application.</p>
+        </div>
+        <div class="card" onclick="openModal('project2')">
+            <h3>QUIZ MASTER V-1</h3>
+            <p>Developed a full-stack multi-user quiz platform.</p>
+        </div>
+        <div class="card" onclick="openModal('project3')">
+            <h3>MediCare Pro</h3>
+            <p>Built a full-stack hospital management web application.</p>
+        </div>
+    </section>
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <form id="contact-form">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2023 Aaryesh Shukla</p>
+    </footer>
+    <div class="modal" id="project1">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('project1')">&times;</span>
+            <h3>Celebrity Image Classifier</h3>
+            <p>Description: Built an end-to-end machine learning web application that predicts the celebrity in an uploaded image.</p>
+            <p>Technologies: Python, ML-Models, Flask</p>
+            <a href="https://github.com/AaryeshShukla/Celebrity-Classifier">View Project</a>
+        </div>
+    </div>
+    <div class="modal" id="project2">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('project2')">&times;</span>
+            <h3>QUIZ MASTER V-1</h3>
+            <p>Description: Developed a full-stack multi-user quiz platform using Flask.</p>
+            <p>Technologies: Python, Flask, RESTful APIs, Bootstrap.</p>
+            <a href="https://github.com/AaryeshShukla/Quiz-Master---V1">View Project</a>
+        </div>
+    </div>
+    <div class="modal" id="project3">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('project3')">&times;</span>
+            <h3>MediCare Pro</h3>
+            <p>Description: Built a full-stack hospital management web application.</p>
+            <p>Technologies: Python, Flask, SQLite, Vue 3, Bootstrap 5, REST APIs, JWT.</p>
+            <a href="https://github.com/AaryeshShukla/MediCare-Pro-Hospital-Management-System">View Project</a>
+        </div>
+    </div>
+    <script>
+        function openModal(projectId) {
+            document.getElementById(projectId).style.display = 'flex';
+        }
+        function closeModal(projectId) {
+            document.getElementById(projectId).style.display = 'none';
+        }
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Message sent!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
